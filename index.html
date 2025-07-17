@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maria Perarnau | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Maria Perarnau</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -42,13 +42,13 @@
       margin-bottom: 20px;
     }
 
-    .projects, .skills {
+    .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
-    .project, .skill {
+    .project {
       background: white;
       padding: 20px;
       border-radius: 10px;
@@ -58,21 +58,37 @@
 
     .project img {
       width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
+      height: auto;
+      border-radius: 10px;
     }
 
-    .project button {
+    .project a {
+      display: inline-block;
+      margin-top: 10px;
       padding: 10px 20px;
-      background-color: #222;
+      background-color: #333;
       color: white;
-      border: none;
+      text-decoration: none;
       border-radius: 5px;
-      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    .project button:hover {
-      background-color: #444;
+    .project a:hover {
+      background-color: #555;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
     }
 
     .skill img {
@@ -84,24 +100,67 @@
       background-color: #222;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
-    .social-links a {
-      margin: 0 10px;
-      color: white;
+    .footer-content h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #f0f0f0;
+    }
+
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0;
+    }
+
+    .contact-info a {
+      color: #ccc;
       text-decoration: none;
     }
 
-    .social-links a:hover {
+    .contact-info a:hover {
       text-decoration: underline;
+    }
+
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-links {
+      margin-top: 15px;
+    }
+
+    .social-links img.social-icon-img {
+      width: 30px;
+      height: 30px;
+      margin: 0 8px;
+      transition: transform 0.2s ease;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-links img.social-icon-img:hover {
+      transform: scale(1.1);
+    }
+
+    footer .copyright {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="MiFoto.jpg" alt="Maria Perarnau" class="profile-pic">
+  <img src="Mifoto.jpg" alt="Maria Perarnau" class="profile-pic">
   <h1>Maria Perarnau</h1>
   <p>Game Design & Developer</p>
 </header>
@@ -109,7 +168,7 @@
 <section>
   <h2>About Me</h2>
   <p>
-    Hi! I’m a game developer focused on art and 3D production. I’m currently studying Game Design and Development at CITM (UPC), with a strong interest in prop modeling, environment art, and concept design. I've worked with tools like Blender, Maya, and Substance to create detailed, polished assets for games. Always learning, improving, and experimenting with new techniques. I often participate in game jams and love collaborating on creative projects. Feel free to explore my work and reach out if you’d like to connect!
+    Hi! I’m a game developer focused on art and 3D production. I’m currently studying Game Design and Development at CITM (UPC), with a strong interest in prop modeling, environment art, and concept design. I work with tools like Blender, Maya, and Substance Painter to create detailed, stylized, and production-ready assets. I also enjoy participating in game jams and collaborating on creative projects.
   </p>
 </section>
 
@@ -117,19 +176,16 @@
   <h2>Proyectos</h2>
   <div class="projects">
     <div class="project">
-      <img src="proyecto1-thumb.jpg" alt="Proyecto 1">
+      <img src="proyecto1-thumbnail.jpg" alt="Proyecto 1">
       <h3>Proyecto 1</h3>
-      <a href="proyecto1.html">
-        <button>Ver más</button>
-      </a>
+      <a href="proyecto1.html">Ver más</a>
     </div>
     <div class="project">
-      <img src="proyecto2-thumb.jpg" alt="Proyecto 2">
+      <img src="proyecto2-thumbnail.jpg" alt="Proyecto 2">
       <h3>Proyecto 2</h3>
-      <a href="proyecto2.html">
-        <button>Ver más</button>
-      </a>
+      <a href="proyecto2.html">Ver más</a>
     </div>
+    <!-- Puedes añadir más proyectos aquí -->
   </div>
 </section>
 
@@ -137,7 +193,7 @@
   <h2>Skills</h2>
   <div class="skills">
     <div class="skill">
-      <img src="maya-logo.png" alt="Autodesk Maya">
+      <img src="maya-logo.png" alt="Maya">
       <p>Maya</p>
     </div>
     <div class="skill">
@@ -146,46 +202,44 @@
     </div>
     <div class="skill">
       <img src="substance-logo.png" alt="Substance Painter">
-      <p>Substance Painter</p>
+      <p>Substance</p>
     </div>
+    <!-- Añade más skills si quieres -->
   </div>
 </section>
 
-<section>
-  <h2>Contacto</h2>
-  <p>Email: <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a></p>
-</section>
-
 <footer>
-  <p>&copy; 2025 Maria Perarnau - All rights reserved</p>
-  <div class="social-links">
-  <a href="https://mariaperarnau.itch.io" target="_blank">
-    <img src="itchio.png" alt="itchio" class="social-icon-img">
-  </a>
-  <a href="https://github.com/MariaPerarnau" target="_blank">
-    <img src="github.jpg" alt="GitHub" class="social-icon-img">
-  </a>
-  <a href="https://mariaperarnau.artstation.com" target="_blank">
-    <img src="artstation.jpg" alt="ArtStation" class="social-icon-img">
-  </a>
-  <a href="https://www.instagram.com/soraliiaah" target="_blank">
-    <img src="instagram.jpg" alt="Instagram" class="social-icon-img">
-  </a>
-</div>
+  <div class="footer-content">
+    <h3>Contact</h3>
 
+    <div class="contact-info">
+      <p>
+        <img src="mail-icon.png" alt="Email Icon" class="contact-icon">
+        <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a>
+      </p>
+      <p>
+        <img src="phone-icon.png" alt="Phone Icon" class="contact-icon">
+        +34 634 639 330
+      </p>
+    </div>
 
-<style>
-  .social-links img.social-icon-img {
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
-  transition: transform 0.2s ease;
-}
+    <div class="social-links">
+      <a href="https://mariaperarnau.artstation.com" target="_blank">
+        <img src="artstation.png" alt="ArtStation" class="social-icon-img">
+      </a>
+      <a href="https://mariaperarnau.itch.io/" target="_blank">
+        <img src="itchio.png" alt="Itchio" class="social-icon-img">
+      </a>
+      <a href="https://github.com/MariaPerarnau" target="_blank">
+        <img src="github.png" alt="GitHub" class="social-icon-img">
+      </a>
+      <a href="https://www.instagram.com/soraliiaah" target="_blank">
+        <img src="instagram.png" alt="Instagram" class="social-icon-img">
+      </a>
+    </div>
 
-.social-links img.social-icon-img:hover {
-  transform: scale(1.1);
-}
-</style>
+    <p class="copyright">© 2025 Maria Perarnau</p>
+  </div>
 </footer>
 
 </body>
