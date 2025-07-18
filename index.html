@@ -128,49 +128,25 @@
 </head>
 <body>
 
-<header>
-  <div class="top-bar">
-    <div class="name">Maria Perarnau</div>
-    <nav>
-      <a href="about.html">About Me</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-  <hr class="divider" />
-</header>
+<div id="header"></div>
 
-<footer>
-  <div class="footer-content">
-    <h3>Contact</h3>
-    <div class="contact-info">
-      <p>
-        <img src="mail-icon.png" alt="Email Icon" class="contact-icon">
-        <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a>
-      </p>
-      <p>
-        <img src="phone-icon.png" alt="Phone Icon" class="contact-icon">
-        +34 634 639 330
-      </p>
-    </div>
-    <div class="social-links">
-      <a href="https://github.com/MariaPerarnau" target="_blank">
-        <img src="github.png" alt="GitHub" class="social-icon-img">
-      </a>
-      <a href="https://mariaperarnau.itch.io/" target="_blank">
-        <img src="itchio.png" alt="Itch.io" class="social-icon-img">
-      </a>
-      <a href="https://mariaperarnau.artstation.com" target="_blank">
-        <img src="artstation.png" alt="ArtStation" class="social-icon-img">
-      </a>
-      <a href="https://www.instagram.com/soraliiaah" target="_blank">
-        <img src="instagram.png" alt="Instagram" class="social-icon-img">
-      </a>
-    </div>
-    <p class="copyright">© 2025 Maria Perarnau</p>
-  </div>
-</footer>
+<div id="footer"></div>
+
+  <script>
+    // Cargar header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    // Cargar footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
 
 </body>
 </html>
