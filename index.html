@@ -81,41 +81,40 @@
     }
 
     /* Contenedor del video con filtro */
-    .video-container {
-  position: relative; /* para estar en flujo */
-  width: 100%;
-  height: 60vh; /* o la altura que quieras que ocupe el video */
+   .video-container {
+  position: fixed; /* fijo en pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw;   /* toda la pantalla */
+  height: 100vh;  /* toda la pantalla */
   overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-  margin: 20px 0; /* separación opcional */
+  z-index: 0;     /* detrás de todo */
+  pointer-events: none; /* no interfiere con clicks */
 }
 
-    video#videoPlayer {
-  position: absolute; /* para cubrir su contenedor */
+ video#videoPlayer {
+  position: absolute;
   top: 50%;
   left: 50%;
-  width: auto;
+  width: 100%;
   height: 100%;
-  min-width: 100%;
   transform: translate(-50%, -50%);
-  object-fit: contain;
+  object-fit: contain;  /* mostrar completo, sin recortar */
   filter: brightness(0.7);
   pointer-events: none;
   background-color: black;
 }
 
-    .video-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.4);
-      pointer-events: none;
-      z-index: 1;
-    }
-
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 1;  /* encima del video, pero debajo del contenido */
+}
     footer {
       background-color: #222;
       color: white;
@@ -193,7 +192,7 @@
     <video id="videoPlayer" autoplay muted playsinline></video>
     <div class="video-overlay"></div>
   </div>
-
+  
   <div id="footer"></div>
 
   <script>
