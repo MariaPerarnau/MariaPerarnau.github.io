@@ -219,11 +219,6 @@ video#videoPlayer {
       .then(response => response.text())
       .then(data => {
         document.getElementById('footer').innerHTML = data;
-        // Aseguramos que el footer interno tenga el id para estilos
-        const footerElement = document.getElementById('footer').querySelector('footer');
-        if (footerElement) {
-          footerElement.id = 'footer';
-        }
       });
 
     // Reproducir videos en loop
