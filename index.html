@@ -7,33 +7,42 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       scroll-behavior: smooth;
     }
 
-    body {
+    html, body {
+      height: 100%;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
       background-color: #f5f5f5;
       color: #333;
+      overflow: hidden; /* Sin scroll */
+      display: flex;
+      flex-direction: column;
     }
 
-    header {
+    #header, #footer {
       background-color: #222;
       color: white;
-      padding: 60px 20px 40px;
-      position: relative;
-      text-align: center;
+      padding: 20px;
+      flex-shrink: 0;
     }
 
-    nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+    /* Opcional: estilos para el contenido que viene desde header.html y footer.html */
+    #header .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    nav a {
+    #header .name {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    #header nav a {
       color: white;
       text-decoration: none;
       margin-left: 20px;
@@ -41,59 +50,49 @@
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
+    #header nav a:hover {
       color: #ffcc00;
     }
 
-    .divider {
-      border: none;
-      border-top: 1px solid white;
-      margin: 60px auto 30px;
-      width: 100%;
-    }
-
-    .footer-content {
+    #footer .footer-content {
       text-align: center;
-      background-color: #222;
-      color: white;
-      padding: 40px 20px;
     }
 
-    .footer-content h3 {
+    #footer .footer-content h3 {
       margin-bottom: 15px;
       font-size: 1.2rem;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    .contact-info p {
+    #footer .contact-info p {
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 8px 0;
     }
 
-    .contact-info a {
+    #footer .contact-info a {
       color: #ccc;
       text-decoration: none;
     }
 
-    .contact-info a:hover {
+    #footer .contact-info a:hover {
       text-decoration: underline;
     }
 
-    .contact-icon {
+    #footer .contact-icon {
       width: 20px;
       height: 20px;
       margin-right: 10px;
       filter: brightness(0) invert(1);
     }
 
-    .social-links {
+    #footer .social-links {
       margin-top: 15px;
     }
 
-    .social-links img.social-icon-img {
+    #footer .social-links img.social-icon-img {
       width: 30px;
       height: 30px;
       margin: 0 8px;
@@ -101,51 +100,40 @@
       filter: brightness(0) invert(1);
     }
 
-    .social-links img.social-icon-img:hover {
+    #footer .social-links img.social-icon-img:hover {
       transform: scale(1.1);
     }
 
-    footer .copyright {
+    #footer .copyright {
       margin-top: 15px;
       font-size: 0.9rem;
       color: #aaa;
     }
 
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
+    /* El espacio vacío entre header y footer que ocupa todo el espacio disponible */
+    #spacer {
+      flex-grow: 1;
     }
-
-    .top-bar .name {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: white;
-    }
-
   </style>
 </head>
 <body>
 
-<div id="header"></div>
+  <div id="header"></div>
 
-<div id="footer"></div>
+  <div id="spacer"></div>
+
+  <div id="footer"></div>
 
   <script>
-    // Cargar header
     fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
+      .then(res => res.text())
+      .then(data => { document.getElementById('header').innerHTML = data; })
+      .catch(err => console.error('Error loading header:', err));
 
-    // Cargar footer
     fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
+      .then(res => res.text())
+      .then(data => { document.getElementById('footer').innerHTML = data; })
+      .catch(err => console.error('Error loading footer:', err));
   </script>
 
 </body>
