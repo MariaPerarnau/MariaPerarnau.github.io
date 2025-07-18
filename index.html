@@ -97,7 +97,17 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 4;
+      text-align: center;
       pointer-events: auto;
+    }
+
+    .hero-name {
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     }
 
     .center-button {
@@ -110,7 +120,7 @@
       border-radius: 30px;
       text-decoration: none;
       transition: background-color 0.3s, transform 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .center-button:hover {
@@ -195,18 +205,22 @@
 
   <div id="header"></div>
 
+  <!-- Fondo de video con overlay -->
   <div class="video-container">
     <video id="videoA" autoplay muted playsinline></video>
     <video id="videoB" autoplay muted playsinline></video>
     <div class="video-overlay"></div>
   </div>
 
+  <!-- Nombre y botón centrados -->
   <div class="center-button-container">
+    <h1 class="hero-name">Maria Perarnau</h1>
     <a href="projects.html" class="center-button">View My Projects</a>
   </div>
 
   <div id="footer"></div>
 
+  <!-- Scripts -->
   <script>
     // Cargar header
     fetch('header.html')
@@ -223,7 +237,7 @@
       });
 
     // Crossfade entre videos
-    const videos = ['video1.mp4', 'video2.mp4', 'video3.mp4', 'vodeo4.mp4'];
+    const videos = ['video1.mp4', 'video2.mp4', 'video3.mp4', 'video4.mp4'];
     let currentIndex = 0;
 
     const videoA = document.getElementById('videoA');
