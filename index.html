@@ -12,28 +12,36 @@
       scroll-behavior: smooth;
     }
 
-    html, body {
-      height: 100%;
+    body {
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
       color: #333;
-      overflow: hidden; /* sin scroll */
-      display: flex;
-      flex-direction: column;
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+      padding-top: 80px;   /* espacio para header fijo */
+      padding-bottom: 120px; /* espacio para footer fijo */
     }
 
-    header, footer {
+    header {
       background-color: #222;
       color: white;
-      flex-shrink: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    /* HEADER */
     header > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
+      padding: 0 20px;
     }
 
     header > div > div {
@@ -60,10 +68,18 @@
       margin: 0 20px;
     }
 
-    /* FOOTER */
-    footer .footer-content {
-      text-align: center;
+    footer {
+      background-color: #222;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      z-index: 1000;
       padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
     }
 
     footer h3 {
@@ -80,6 +96,7 @@
       justify-content: center;
       margin: 8px 0;
       color: #ccc;
+      font-size: 0.9rem;
     }
 
     .contact-info a {
@@ -115,14 +132,14 @@
     }
 
     footer .copyright {
-      margin-top: 15px;
-      font-size: 0.9rem;
+      margin-top: 10px;
+      font-size: 0.8rem;
       color: #aaa;
     }
 
-    /* espacio vacío entre header y footer */
     #spacer {
-      flex-grow: 1;
+      height: calc(100vh - 80px - 120px);
+      /* Solo espacio vacío entre header y footer */
       background: transparent;
     }
   </style>
@@ -146,34 +163,32 @@
 <div id="spacer"></div>
 
 <footer>
-  <div class="footer-content">
-    <h3>Contact</h3>
-    <div class="contact-info">
-      <p>
-        <img src="mail-icon.png" alt="Email Icon" class="contact-icon" />
-        <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a>
-      </p>
-      <p>
-        <img src="phone-icon.png" alt="Phone Icon" class="contact-icon" />
-        +34 634 639 330
-      </p>
-    </div>
-    <div class="social-links">
-      <a href="https://github.com/MariaPerarnau" target="_blank">
-        <img src="github.png" alt="GitHub" class="social-icon-img" />
-      </a>
-      <a href="https://mariaperarnau.itch.io/" target="_blank">
-        <img src="itchio.png" alt="Itch.io" class="social-icon-img" />
-      </a>
-      <a href="https://mariaperarnau.artstation.com" target="_blank">
-        <img src="artstation.png" alt="ArtStation" class="social-icon-img" />
-      </a>
-      <a href="https://www.instagram.com/soraliiaah" target="_blank">
-        <img src="instagram.png" alt="Instagram" class="social-icon-img" />
-      </a>
-    </div>
-    <p class="copyright">© 2025 Maria Perarnau</p>
+  <h3>Contact</h3>
+  <div class="contact-info">
+    <p>
+      <img src="mail-icon.png" alt="Email Icon" class="contact-icon" />
+      <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a>
+    </p>
+    <p>
+      <img src="phone-icon.png" alt="Phone Icon" class="contact-icon" />
+      +34 634 639 330
+    </p>
   </div>
+  <div class="social-links">
+    <a href="https://github.com/MariaPerarnau" target="_blank">
+      <img src="github.png" alt="GitHub" class="social-icon-img" />
+    </a>
+    <a href="https://mariaperarnau.itch.io/" target="_blank">
+      <img src="itchio.png" alt="Itch.io" class="social-icon-img" />
+    </a>
+    <a href="https://mariaperarnau.artstation.com" target="_blank">
+      <img src="artstation.png" alt="ArtStation" class="social-icon-img" />
+    </a>
+    <a href="https://www.instagram.com/soraliiaah" target="_blank">
+      <img src="instagram.png" alt="Instagram" class="social-icon-img" />
+    </a>
+  </div>
+  <p class="copyright">© 2025 Maria Perarnau</p>
 </footer>
 
 </body>
