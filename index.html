@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Maria Perarnau | Portfolio</title>
   <style>
     * {
@@ -17,32 +17,32 @@
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
       color: #333;
-      overflow: hidden; /* Sin scroll */
+      overflow: hidden; /* sin scroll */
       display: flex;
       flex-direction: column;
     }
 
-    #header, #footer {
+    header, footer {
       background-color: #222;
       color: white;
-      padding: 20px;
       flex-shrink: 0;
     }
 
-    /* Opcional: estilos para el contenido que viene desde header.html y footer.html */
-    #header .top-bar {
+    /* HEADER */
+    header > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 20px;
     }
 
-    #header .name {
+    header > div > div {
       font-weight: bold;
       font-size: 1.2rem;
       color: white;
     }
 
-    #header nav a {
+    header nav a {
       color: white;
       text-decoration: none;
       margin-left: 20px;
@@ -50,49 +50,59 @@
       transition: color 0.3s ease;
     }
 
-    #header nav a:hover {
+    header nav a:hover {
       color: #ffcc00;
     }
 
-    #footer .footer-content {
-      text-align: center;
+    header hr {
+      border: none;
+      border-top: 1px solid white;
+      margin: 0 20px;
     }
 
-    #footer .footer-content h3 {
+    /* FOOTER */
+    footer .footer-content {
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer h3 {
       margin-bottom: 15px;
       font-size: 1.2rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+      color: white;
     }
 
-    #footer .contact-info p {
+    .contact-info p {
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 8px 0;
+      color: #ccc;
     }
 
-    #footer .contact-info a {
+    .contact-info a {
       color: #ccc;
       text-decoration: none;
     }
 
-    #footer .contact-info a:hover {
+    .contact-info a:hover {
       text-decoration: underline;
     }
 
-    #footer .contact-icon {
+    .contact-icon {
       width: 20px;
       height: 20px;
       margin-right: 10px;
       filter: brightness(0) invert(1);
     }
 
-    #footer .social-links {
+    .social-links {
       margin-top: 15px;
     }
 
-    #footer .social-links img.social-icon-img {
+    .social-links img.social-icon-img {
       width: 30px;
       height: 30px;
       margin: 0 8px;
@@ -100,41 +110,71 @@
       filter: brightness(0) invert(1);
     }
 
-    #footer .social-links img.social-icon-img:hover {
+    .social-links img.social-icon-img:hover {
       transform: scale(1.1);
     }
 
-    #footer .copyright {
+    footer .copyright {
       margin-top: 15px;
       font-size: 0.9rem;
       color: #aaa;
     }
 
-    /* El espacio vacío entre header y footer que ocupa todo el espacio disponible */
+    /* espacio vacío entre header y footer */
     #spacer {
       flex-grow: 1;
+      background: transparent;
     }
   </style>
 </head>
 <body>
 
-  <div id="header"></div>
+<header>
+  <div>
+    <div>Maria Perarnau</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <hr />
+</header>
 
-  <div id="spacer"></div>
+<div id="spacer"></div>
 
-  <div id="footer"></div>
-
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(data => { document.getElementById('header').innerHTML = data; })
-      .catch(err => console.error('Error loading header:', err));
-
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(data => { document.getElementById('footer').innerHTML = data; })
-      .catch(err => console.error('Error loading footer:', err));
-  </script>
+<footer>
+  <div class="footer-content">
+    <h3>Contact</h3>
+    <div class="contact-info">
+      <p>
+        <img src="mail-icon.png" alt="Email Icon" class="contact-icon" />
+        <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a>
+      </p>
+      <p>
+        <img src="phone-icon.png" alt="Phone Icon" class="contact-icon" />
+        +34 634 639 330
+      </p>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/MariaPerarnau" target="_blank">
+        <img src="github.png" alt="GitHub" class="social-icon-img" />
+      </a>
+      <a href="https://mariaperarnau.itch.io/" target="_blank">
+        <img src="itchio.png" alt="Itch.io" class="social-icon-img" />
+      </a>
+      <a href="https://mariaperarnau.artstation.com" target="_blank">
+        <img src="artstation.png" alt="ArtStation" class="social-icon-img" />
+      </a>
+      <a href="https://www.instagram.com/soraliiaah" target="_blank">
+        <img src="instagram.png" alt="Instagram" class="social-icon-img" />
+      </a>
+    </div>
+    <p class="copyright">© 2025 Maria Perarnau</p>
+  </div>
+</footer>
 
 </body>
 </html>
