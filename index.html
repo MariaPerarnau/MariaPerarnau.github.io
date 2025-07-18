@@ -84,18 +84,24 @@
       line-height: 1.6;
     }
 
-    /* Contenedor del video con filtro */
-.video-container {
-  position: fixed;
+  .video-container video {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
   pointer-events: none;
-  margin: 0;
-  padding: 0;
+  background-color: black;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+  z-index: 0;
+}
+
+#videoA.active, #videoB.active {
+  opacity: 1;
+  z-index: 2;
 }
 
 video#videoPlayer {
@@ -201,9 +207,10 @@ video#videoPlayer {
   <div id="header"></div>
 
   <div class="video-container">
-    <video id="videoPlayer" autoplay muted playsinline></video>
-    <div class="video-overlay"></div>
-  </div>
+  <video id="videoA" autoplay muted playsinline></video>
+  <video id="videoB" autoplay muted playsinline></video>
+  <div class="video-overlay"></div>
+</div>
 
   <div id="footer"></div>
 
@@ -223,30 +230,65 @@ video#videoPlayer {
       });
 
     // Reproducir videos en loop
-    const videos = ['video1.mp4', 'video2.mp4', 'video3.mp4', 'vodep4.mp4'];
-const videoPlayer = document.getElementById('videoPlayer');
+const videos = ['video1.mp4', 'video2.mp4', 'video3.mp4', 'vodep4.mp4'];
 let currentIndex = 0;
 
-function playVideo(index) {
-  videoPlayer.style.opacity = 0; // fade out
+const videoA = document.getElementById('videoA');
+const videoB = document.getElementById('videoB');
+let currentVideo = videoA;
+let nextVideo = videoB;
 
-  setTimeout(() => {
-    videoPlayer.src = videos[index];
-    videoPlayer.load();
-    videoPlayer.play();
-  }, 1000); // esperar a que termine el fade out (1s)
+function crossfadeVideos() {
+  // Cargar y reproducir siguiente video
+  nextVideo.src = videos[(currentIndex + 1) % videos.length];
+  nextVideo.load();
+  nextVideo.currentTime = 0;
+  nextVideo.play();
 
-  setTimeout(() => {
-    videoPlayer.style.opacity = 1; // fade in
-  }, 1500); // después de que empiece a cargar
+  // Activar fade visual
+  nextVideo.classList.add('active');
+  currentVideo.classList.remove('active');
+
+  // Intercambiar referencias
+  [currentVideo, nextVideo] = [nextVideo, currentVideo];
+
+  currentIndex = (currentIndex + 1) % videos.length;
+
+  // Programar la próxima transición justo antes de que termine
+  scheduleCrossfade();
 }
 
-videoPlayer.addEventListener('ended', () => {
-  currentIndex = (currentIndex + 1) % videos.length;
-  playVideo(currentIndex);
-});
+function scheduleCrossfade() {
+  const duration = currentVideo.duration;
+  if (!isNaN(duration)) {
+    const startFade = duration - 2; // empieza el crossfade 2s antes de que termine
+    currentVideo.removeEventListener('timeupdate', handleFadeStart);
+    currentVideo.addEventListener('timeupdate', handleFadeStart);
 
-playVideo(currentIndex);
+    function handleFadeStart() {
+      if (currentVideo.currentTime >= startFade) {
+        currentVideo.removeEventListener('timeupdate', handleFadeStart);
+        crossfadeVideos();
+      }
+    }
+  } else {
+    // si el video aún no tiene duración, esperar y reintentar
+    setTimeout(scheduleCrossfade, 200);
+  }
+}
+
+function startPlaylist() {
+  currentVideo.src = videos[currentIndex];
+  currentVideo.classList.add('active');
+  currentVideo.play();
+
+  currentVideo.onloadedmetadata = () => {
+    scheduleCrossfade();
+  };
+}
+
+startPlaylist();
+
   </script>
 </body>
 </html>
