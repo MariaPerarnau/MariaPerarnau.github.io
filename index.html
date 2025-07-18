@@ -18,42 +18,6 @@
       color: #333;
     }
 
-    header {
-      background-color: #222;
-      color: white;
-      padding: 20px 20px 10px;
-    }
-
-    header > div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header > div > div {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: white;
-    }
-
-    header nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    header nav a:hover {
-      color: #ffcc00;
-    }
-
-    header hr {
-      border: none;
-      border-top: 1px solid white;
-      margin: 10px 0 0 0;
-    }
-
     /* Contenedor del video con filtro */
     .video-container {
       position: relative;
@@ -68,8 +32,7 @@
       height: auto;
       display: block;
       object-fit: cover;
-      filter: brightness(0.7); /* baja brillo directo en video (opcional) */
-      /* opacity: 0.8;  también puede usarse, pero con capa negra es mejor filtro */
+      filter: brightness(0.7);
     }
 
     /* Capa negra filtrante */
@@ -79,84 +42,21 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4); /* negro con 40% opacidad */
-      pointer-events: none; /* para que no interfiera con clicks */
-    }
-
-    footer {
-      background-color: #222;
-      color: white;
-      padding: 20px;
-      box-sizing: border-box;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    footer h3 {
-      margin-bottom: 15px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: white;
-    }
-
-    .contact-info p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 8px 0;
-      color: #ccc;
-      font-size: 0.9rem;
-    }
-
-    .contact-info a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      filter: brightness(0) invert(1);
-    }
-
-    .social-links {
-      margin-top: 15px;
-    }
-
-    .social-links img.social-icon-img {
-      width: 30px;
-      height: 30px;
-      margin: 0 8px;
-      transition: transform 0.2s ease;
-      filter: brightness(0) invert(1);
-    }
-
-    .social-links img.social-icon-img:hover {
-      transform: scale(1.1);
-    }
-
-    footer .copyright {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: #aaa;
+      background-color: rgba(0, 0, 0, 0.4);
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
- <div id="header"></div>
 
-<div class="video-container">
-  <video id="videoPlayer" autoplay muted playsinline></video>
-  <div class="video-overlay"></div>
-</div>
+  <div id="header"></div>
 
- <div id="footer"></div>
+  <div class="video-container">
+    <video id="videoPlayer" autoplay muted playsinline></video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <div id="footer"></div>
 
   <script>
     // Cargar header
@@ -172,31 +72,28 @@
       .then(data => {
         document.getElementById('footer').innerHTML = data;
       });
-  </script>
 
-<script>
-  const videos = [
-    'video1.mp4',
-    'video2.mp4',
-    'video3.mp4'
-  ];
+    // Lista de videos para reproducir en loop
+    const videos = [
+      'video1.mp4',
+      'video2.mp4',
+      'video3.mp4'
+    ];
 
-  const videoPlayer = document.getElementById('videoPlayer');
-  let currentIndex = 0;
+    const videoPlayer = document.getElementById('videoPlayer');
+    let currentIndex = 0;
 
-  function playVideo(index) {
-    videoPlayer.src = videos[index];
-    videoPlayer.play();
-  }
+    function playVideo(index) {
+      videoPlayer.src = videos[index];
+      videoPlayer.play();
+    }
 
-  videoPlayer.addEventListener('ended', () => {
-    currentIndex = (currentIndex + 1) % videos.length;
+    videoPlayer.addEventListener('ended', () => {
+      currentIndex = (currentIndex + 1) % videos.length;
+      playVideo(currentIndex);
+    });
+
     playVideo(currentIndex);
-  });
-
-  playVideo(currentIndex);
-</script>
-
-
+  </script>
 </body>
 </html>
