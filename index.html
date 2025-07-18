@@ -108,7 +108,8 @@ video#videoPlayer {
   filter: brightness(0.7);
   pointer-events: none;
   background-color: black;
-  transform: none;
+  transition: opacity 1s ease-in-out; /* TRANSICIÓN */
+  opacity: 1; /* visible por defecto */
 }
 
     .video-overlay {
@@ -222,21 +223,30 @@ video#videoPlayer {
       });
 
     // Reproducir videos en loop
-    const videos = ['video1.mp4', 'video2.mp4', 'video3.mp4'];
-    const videoPlayer = document.getElementById('videoPlayer');
-    let currentIndex = 0;
+    const videos = ['video1.mp4', 'video2.mp4', 'video3.mp4', 'vodep4.mp4'];
+const videoPlayer = document.getElementById('videoPlayer');
+let currentIndex = 0;
 
-    function playVideo(index) {
-      videoPlayer.src = videos[index];
-      videoPlayer.play();
-    }
+function playVideo(index) {
+  videoPlayer.style.opacity = 0; // fade out
 
-    videoPlayer.addEventListener('ended', () => {
-      currentIndex = (currentIndex + 1) % videos.length;
-      playVideo(currentIndex);
-    });
+  setTimeout(() => {
+    videoPlayer.src = videos[index];
+    videoPlayer.load();
+    videoPlayer.play();
+  }, 1000); // esperar a que termine el fade out (1s)
 
-    playVideo(currentIndex);
+  setTimeout(() => {
+    videoPlayer.style.opacity = 1; // fade in
+  }, 1500); // después de que empiece a cargar
+}
+
+videoPlayer.addEventListener('ended', () => {
+  currentIndex = (currentIndex + 1) % videos.length;
+  playVideo(currentIndex);
+});
+
+playVideo(currentIndex);
   </script>
 </body>
 </html>
