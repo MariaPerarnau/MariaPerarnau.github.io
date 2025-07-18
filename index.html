@@ -24,6 +24,7 @@
       color: white;
       padding: 60px 20px 40px;
       position: relative;
+      text-align: center;
     }
 
     nav {
@@ -46,42 +47,40 @@
 
     .divider {
       border: none;
-      height: 1px;
-      background-color: white;
-      margin-top: 40px;
+      border-top: 1px solid white;
+      margin: 60px auto 30px;
+      width: 100%;
     }
 
     .header-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      max-width: 1000px;
-      margin: 40px auto 0;
       gap: 20px;
     }
 
     .profile-name {
       font-size: 2rem;
       font-weight: bold;
-      margin-bottom: 10px;
     }
 
     .profile-pic {
-      width: 160px;
+      width: 200px;
       height: auto;
       object-fit: cover;
       border: 4px solid #fff;
     }
 
-    .header-text {
-      max-width: 700px;
-      text-align: center;
+    .about-section {
+      background-color: #222;
+      color: white;
+      padding: 60px 20px;
     }
 
-    .header-text p {
-      margin: 0;
-      font-size: 1.1rem;
+    .about-text {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
     }
 
     section {
@@ -197,6 +196,7 @@
       height: 30px;
       margin: 0 8px;
       transition: transform 0.2s ease;
+      filter: brightness(0) invert(1);
     }
 
     .social-links img.social-icon-img:hover {
@@ -225,13 +225,17 @@
   <div class="header-content">
     <div class="profile-name">Maria Perarnau</div>
     <img src="Mifoto.jpg" alt="Maria Perarnau" class="profile-pic">
-    <div class="header-text" id="about">
-      <p>
-        Hi! I’m a game developer focused on art and 3D production. I’m currently studying Game Design and Development at CITM (UPC), with a strong interest in prop modeling, environment art, and concept design. I work with tools like Blender, Maya, and Substance Painter to create detailed, stylized, and production-ready assets. I also enjoy participating in game jams and collaborating on creative projects.
-      </p>
-    </div>
   </div>
 </header>
+
+<section id="about" class="about-section">
+  <div class="about-text">
+    <h2>About Me</h2>
+    <p>
+      Hi! I’m a game developer focused on art and 3D production. I’m currently studying Game Design and Development at CITM (UPC), with a strong interest in prop modeling, environment art, and concept design. I work with tools like Blender, Maya, and Substance Painter to create detailed, stylized, and production-ready assets. I also enjoy participating in game jams and collaborating on creative projects.
+    </p>
+  </div>
+</section>
 
 <section id="projects">
   <h2>Projects</h2>
@@ -246,7 +250,6 @@
       <h3>Proyecto 2</h3>
       <a href="proyecto2.html">Ver más</a>
     </div>
-    <!-- Puedes añadir más proyectos -->
   </div>
 </section>
 
