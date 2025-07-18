@@ -8,34 +8,29 @@
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
-      margin: 0;
-      padding: 0;
     }
 
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
       background-color: #f5f5f5;
       color: #333;
     }
 
-    /* Header */
     header {
       background-color: #222;
       color: white;
-      padding: 20px;
+      padding: 60px 20px 40px;
+      position: relative;
+      text-align: center;
     }
 
-    .header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .header-bar .site-name {
-      font-weight: bold;
-      font-size: 1.2rem;
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
 
     nav a {
@@ -53,118 +48,14 @@
     .divider {
       border: none;
       border-top: 1px solid white;
-      margin: 0 20px;
+      margin: 60px auto 30px;
+      width: 100%;
     }
 
-    /* About */
-    .about-section {
+    .footer-content {
+      text-align: center;
       background-color: #222;
       color: white;
-      padding: 60px 20px;
-    }
-
-    .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      max-width: 1000px;
-      margin: auto;
-      align-items: center;
-    }
-
-    .about-photo img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .about-text {
-      flex: 1;
-    }
-
-    .about-text h2 {
-      border-bottom: 2px solid #444;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-
-    /* General Section Styling */
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-    }
-
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .project {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .project img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .project a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #333;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .project a:hover {
-      background-color: #555;
-    }
-
-    /* Skills */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 20px;
-    }
-
-    .skill {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .skill img {
-      height: 60px;
-      margin-bottom: 10px;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
       padding: 40px 20px;
     }
 
@@ -202,7 +93,7 @@
       margin-top: 15px;
     }
 
-    .social-icon-img {
+    .social-links img.social-icon-img {
       width: 30px;
       height: 30px;
       margin: 0 8px;
@@ -210,118 +101,76 @@
       filter: brightness(0) invert(1);
     }
 
-    .social-icon-img:hover {
+    .social-links img.social-icon-img:hover {
       transform: scale(1.1);
     }
 
-    .copyright {
+    footer .copyright {
       margin-top: 15px;
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .top-bar .name {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: white;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="header-bar">
-      <div class="site-name">Maria Perarnau</div>
-      <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<header>
+  <div class="top-bar">
+    <div class="name">Maria Perarnau</div>
+    <nav>
+      <a href="about.html">About Me</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <hr class="divider" />
+</header>
+
+<footer>
+  <div class="footer-content">
+    <h3>Contact</h3>
+    <div class="contact-info">
+      <p>
+        <img src="mail-icon.png" alt="Email Icon" class="contact-icon">
+        <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a>
+      </p>
+      <p>
+        <img src="phone-icon.png" alt="Phone Icon" class="contact-icon">
+        +34 634 639 330
+      </p>
     </div>
-    <hr class="divider">
-  </header>
-
-  <!-- About Me -->
-  <section id="about" class="about-section">
-    <div class="about-container">
-      <div class="about-photo">
-        <img src="Mifoto.jpg" alt="Maria Perarnau">
-      </div>
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>
-          Hi! I’m a game dev, concept artist & 3D artist who loves making games in Unity! Currently studying game design and development at CITM (UPC). I work with tools like Blender, Maya, and Substance Painter to create detailed, stylized, and production-ready assets. I also enjoy participating in game jams and collaborating on creative projects.
-        </p>
-      </div>
+    <div class="social-links">
+      <a href="https://github.com/MariaPerarnau" target="_blank">
+        <img src="github.png" alt="GitHub" class="social-icon-img">
+      </a>
+      <a href="https://mariaperarnau.itch.io/" target="_blank">
+        <img src="itchio.png" alt="Itch.io" class="social-icon-img">
+      </a>
+      <a href="https://mariaperarnau.artstation.com" target="_blank">
+        <img src="artstation.png" alt="ArtStation" class="social-icon-img">
+      </a>
+      <a href="https://www.instagram.com/soraliiaah" target="_blank">
+        <img src="instagram.png" alt="Instagram" class="social-icon-img">
+      </a>
     </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <img src="proyecto1-thumbnail.jpg" alt="Proyecto 1">
-        <h3>Proyecto 1</h3>
-        <a href="proyecto1.html">Ver más</a>
-      </div>
-      <div class="project">
-        <img src="proyecto2-thumbnail.jpg" alt="Proyecto 2">
-        <h3>Proyecto 2</h3>
-        <a href="proyecto2.html">Ver más</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="skill">
-        <img src="maya-logo.png" alt="Maya">
-        <p>Maya</p>
-      </div>
-      <div class="skill">
-        <img src="blender-logo.png" alt="Blender">
-        <p>Blender</p>
-      </div>
-      <div class="skill">
-        <img src="substance-logo.png" alt="Substance Painter">
-        <p>Substance</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="footer-content">
-      <h3>Contact</h3>
-
-      <div class="contact-info">
-        <p>
-          <img src="mail-icon.png" alt="Email Icon" class="contact-icon">
-          <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a>
-        </p>
-        <p>
-          <img src="phone-icon.png" alt="Phone Icon" class="contact-icon">
-          +34 634 639 330
-        </p>
-      </div>
-
-      <div class="social-links">
-        <a href="https://github.com/MariaPerarnau" target="_blank">
-          <img src="github.png" alt="GitHub" class="social-icon-img">
-        </a>
-        <a href="https://mariaperarnau.itch.io/" target="_blank">
-          <img src="itchio.png" alt="Itch.io" class="social-icon-img">
-        </a>
-        <a href="https://mariaperarnau.artstation.com" target="_blank">
-          <img src="artstation.png" alt="ArtStation" class="social-icon-img">
-        </a>
-        <a href="https://www.instagram.com/soraliiaah" target="_blank">
-          <img src="instagram.png" alt="Instagram" class="social-icon-img">
-        </a>
-      </div>
-
-      <p class="copyright">© 2025 Maria Perarnau</p>
-    </div>
-  </footer>
+    <p class="copyright">© 2025 Maria Perarnau</p>
+  </div>
+</footer>
 
 </body>
 </html>
