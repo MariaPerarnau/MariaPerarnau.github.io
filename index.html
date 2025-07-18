@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio - Maria Perarnau</title>
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -15,23 +20,64 @@
     }
 
     header {
-      text-align: center;
-      padding: 40px 20px;
       background-color: #222;
       color: white;
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .header-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      margin: auto;
+      gap: 40px;
     }
 
     .profile-pic {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid #fff;
-      margin-bottom: 20px;
+    }
+
+    .header-text {
+      max-width: 600px;
+    }
+
+    .header-text h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+    }
+
+    .header-text p {
+      margin: 0;
+      font-size: 1.1rem;
     }
 
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
@@ -39,7 +85,7 @@
     h2 {
       border-bottom: 2px solid #ddd;
       padding-bottom: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .projects {
@@ -160,20 +206,25 @@
 <body>
 
 <header>
-  <img src="Mifoto.jpg" alt="Maria Perarnau" class="profile-pic">
-  <h1>Maria Perarnau</h1>
-  <p>Game Design & Developer</p>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="header-content">
+    <img src="Mifoto.jpg" alt="Maria Perarnau" class="profile-pic">
+    <div class="header-text" id="about">
+      <h1>Maria Perarnau</h1>
+      <p>
+        Hi! I’m a game developer focused on art and 3D production. I’m currently studying Game Design and Development at CITM (UPC), with a strong interest in prop modeling, environment art, and concept design. I work with tools like Blender, Maya, and Substance Painter to create detailed, stylized, and production-ready assets. I also enjoy participating in game jams and collaborating on creative projects.
+      </p>
+    </div>
+  </div>
 </header>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    Hi! I’m a game developer focused on art and 3D production. I’m currently studying Game Design and Development at CITM (UPC), with a strong interest in prop modeling, environment art, and concept design. I work with tools like Blender, Maya, and Substance Painter to create detailed, stylized, and production-ready assets. I also enjoy participating in game jams and collaborating on creative projects.
-  </p>
-</section>
-
-<section>
-  <h2>Proyectos</h2>
+<section id="projects">
+  <h2>Projects</h2>
   <div class="projects">
     <div class="project">
       <img src="proyecto1-thumbnail.jpg" alt="Proyecto 1">
@@ -185,11 +236,11 @@
       <h3>Proyecto 2</h3>
       <a href="proyecto2.html">Ver más</a>
     </div>
-    <!-- Puedes añadir más proyectos aquí -->
+    <!-- Puedes añadir más proyectos -->
   </div>
 </section>
 
-<section>
+<section id="skills">
   <h2>Skills</h2>
   <div class="skills">
     <div class="skill">
@@ -204,11 +255,10 @@
       <img src="substance-logo.png" alt="Substance Painter">
       <p>Substance</p>
     </div>
-    <!-- Añade más skills si quieres -->
   </div>
 </section>
 
-<footer>
+<footer id="contact">
   <div class="footer-content">
     <h3>Contact</h3>
 
@@ -224,14 +274,14 @@
     </div>
 
     <div class="social-links">
-      <a href="https://mariaperarnau.artstation.com" target="_blank">
-        <img src="artstation.png" alt="ArtStation" class="social-icon-img">
-      </a>
-      <a href="https://mariaperarnau.itch.io/" target="_blank">
-        <img src="itchio.png" alt="Itchio" class="social-icon-img">
-      </a>
       <a href="https://github.com/MariaPerarnau" target="_blank">
         <img src="github.png" alt="GitHub" class="social-icon-img">
+      </a>
+      <a href="https://mariaperarnau.itch.io/" target="_blank">
+        <img src="itchio.png" alt="Itch.io" class="social-icon-img">
+      </a>
+      <a href="https://mariaperarnau.artstation.com" target="_blank">
+        <img src="artstation.png" alt="ArtStation" class="social-icon-img">
       </a>
       <a href="https://www.instagram.com/soraliiaah" target="_blank">
         <img src="instagram.png" alt="Instagram" class="social-icon-img">
