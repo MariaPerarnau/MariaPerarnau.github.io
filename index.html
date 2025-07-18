@@ -25,11 +25,13 @@
     }
 
     header {
-      background-color: #222;
+      background: linear-gradient(to bottom, #222, rgba(34, 34, 34, 0));
       padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      z-index: 5;
     }
 
     .name {
@@ -129,14 +131,14 @@
     }
 
     footer {
+      background: linear-gradient(to top, #222, rgba(34, 34, 34, 0));
+      color: white;
+      padding: 20px;
+      text-align: center;
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background-color: #222;
-      color: white;
-      padding: 20px;
-      text-align: center;
       z-index: 3;
       box-sizing: border-box;
     }
@@ -167,7 +169,7 @@
     }
 
     .contact-info a {
-      color: #0099ff;
+      color: #ffcc00;
       text-decoration: none;
     }
 
