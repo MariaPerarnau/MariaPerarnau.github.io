@@ -16,6 +16,7 @@
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
       color: #333;
+      padding-bottom: 80px; /*alto footer*/
     }
 
     /* Aseguramos que header y footer estén sobre el video */
@@ -84,30 +85,30 @@
     }
 
     /* Contenedor del video con filtro */
-  .video-container {
-  position: fixed; /* fijo en toda la pantalla */
+.video-container {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  z-index: 0; /* atrás de todo */
+  z-index: 0;
   pointer-events: none;
-  margin: 0; /* sin margen */
-  padding: 0; /* sin padding */
+  margin: 0;
+  padding: 0;
 }
 
 video#videoPlayer {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: contain; /* se ve completo sin recorte */
+  object-fit: cover;
   filter: brightness(0.7);
   pointer-events: none;
   background-color: black;
+  transform: none;
 }
 
     .video-overlay {
@@ -122,14 +123,17 @@ video#videoPlayer {
     }
 
     footer {
-      background-color: #222;
-      color: white;
-      padding: 40px 20px;
-      margin: 0;
-      text-align: center;
-      position: relative; /* para z-index */
-      z-index: 3; /* asegúrate que esté arriba */
-    }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  padding: 20px 20px; /* un poco menos de altura para que no tape tanto */
+  text-align: center;
+  z-index: 3;
+  box-sizing: border-box;
+}
 
     .footer-content {
       max-width: 1000px;
