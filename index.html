@@ -18,14 +18,20 @@
       color: #333;
     }
 
-    header {
+    /* Asegura que header/footer contenedores estén por encima del fondo */
+    #header, #footer {
+      position: relative;
       z-index: 30;
+    }
+
+    header {
       background-color: #222;
       padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .name {
       color: white;
       font-weight: bold;
@@ -74,112 +80,107 @@
       line-height: 1.6;
     }
 
-    /* Contenedor del video con filtro */
-   .video-container {
-  position: fixed; /* para que ocupe toda la pantalla */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 0; /* debajo del header/footer, pero encima del fondo */
-  pointer-events: none;
-}
+    /* Video de fondo */
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
 
     video#videoPlayer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: 100vh;
-  min-width: 100vw;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  filter: brightness(0.7);
-  z-index: 0;
-}
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      filter: brightness(0.7);
+      z-index: 0;
+    }
 
-    /* Capa negra filtrante */
     .video-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  pointer-events: none;
-  z-index: 1; /* encima del video, debajo del header/footer */
-  pointer-events: none;
-}
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      pointer-events: none;
+    }
 
     footer {
-  background-color: #222;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-  z-index: 30;
-  position: relative;
-}
+      background-color: #222;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-.footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-.footer-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #444;
-  display: inline-block;
-  padding-bottom: 5px;
-}
+    .footer-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #444;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
 
-.contact-info p {
-  margin: 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
+    .contact-info p {
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
 
-.contact-icon {
-  width: 20px;
-  height: 20px;
-}
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+    }
 
-.contact-info a {
-  color: #ffcc00;
-  text-decoration: none;
-}
+    .contact-info a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
 
-.contact-info a:hover {
-  text-decoration: underline;
-}
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
 
-.social-links {
-  margin: 20px 0;
-}
+    .social-links {
+      margin: 20px 0;
+    }
 
-.social-links a {
-  margin: 0 10px;
-  display: inline-block;
-}
+    .social-links a {
+      margin: 0 10px;
+      display: inline-block;
+    }
 
-.social-icon-img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s;
-}
+    .social-icon-img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s;
+    }
 
-.social-icon-img:hover {
-  transform: scale(1.2);
-}
+    .social-icon-img:hover {
+      transform: scale(1.2);
+    }
 
-footer .copyright {
-  font-size: 0.9rem;
-  margin-top: 20px;
-  color: #bbb;
-}
+    footer .copyright {
+      font-size: 0.9rem;
+      margin-top: 20px;
+      color: #bbb;
+    }
   </style>
 </head>
 <body>
@@ -190,6 +191,20 @@ footer .copyright {
     <video id="videoPlayer" autoplay muted playsinline></video>
     <div class="video-overlay"></div>
   </div>
+
+  <!-- Contenido de ejemplo para testear scroll -->
+  <section class="about-container">
+    <div class="about-photo">
+      <img src="foto.jpg" alt="Foto de Maria" />
+    </div>
+    <div class="about-text">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy una artista multidisciplinar especializada en diseño, animación y desarrollo creativo.
+        Me apasiona contar historias visuales y trabajar en proyectos interactivos que combinan arte y tecnología.
+      </p>
+    </div>
+  </section>
 
   <div id="footer"></div>
 
