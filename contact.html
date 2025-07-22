@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Maria Perarnau</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #222;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #222;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .name {
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 80px;
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .about-photo img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .contact-column {
+      flex: 1;
+      min-width: 280px;
+      max-width: 500px;
+    }
+
+    .contact-column h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 10px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-info a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+    }
+
+    .social-icon-img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s;
+    }
+
+    .social-icon-img:hover {
+      transform: scale(1.2);
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    footer .copyright {
+      font-size: 0.9rem;
+      margin-top: 20px;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <section class="about-container">
+    <!-- Columna izquierda: Foto -->
+    <div class="about-photo">
+      <img src="Assets/Mifoto.jpg" alt="Maria Perarnau">
+    </div>
+
+    <!-- Columna derecha: Contacto -->
+    <div class="contact-column">
+      <h3>Contact</h3>
+
+      <div class="contact-info">
+        <p>
+          <img src="Assets/Contact/mail-icon.png" alt="Email Icon" class="contact-icon">
+          <a href="mailto:mariaperarnausanguesa@gmail.com">mariaperarnausanguesa@gmail.com</a>
+        </p>
+        <p>
+          <img src="Assets/Contact/phone-icon.png" alt="Phone Icon" class="contact-icon">
+          +34 634 639 330
+        </p>
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com/MariaPerarnau" target="_blank">
+          <img src="Assets/Contact/github.png" alt="GitHub" class="social-icon-img">
+        </a>
+        <a href="https://mariaperarnau.itch.io/" target="_blank">
+          <img src="Assets/Contact/itchio.png" alt="Itch.io" class="social-icon-img">
+        </a>
+        <a href="https://mariaperarnau.artstation.com" target="_blank">
+          <img src="Assets/Contact/artstation.png" alt="ArtStation" class="social-icon-img">
+        </a>
+        <a href="https://www.instagram.com/soraliiaah" target="_blank">
+          <img src="Assets/Contact/instagram.png" alt="Instagram" class="social-icon-img">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="copyright">© 2025 Maria Perarnau</p>
+  </footer>
+
+  <script>
+    // Cargar header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

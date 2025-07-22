@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maria Perarnau | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      position: relative; /* para contener fondo animado si es necesario */
+      overflow-x: hidden;
+    }
+
+    #header, #footer {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+    }
+
+    header {
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .name {
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    /* Sección intro que ocupa toda la pantalla y centra contenido */
+    .intro-section {
+      min-height: 100vh; /* toda la altura de la ventana */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* centra verticalmente */
+      align-items: center;     /* centra horizontalmente */
+      text-align: center;
+      padding: 0 20px;
+      background-color: #f5f5f5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .center-intro h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .center-intro p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      line-height: 1.4;
+    }
+
+    .center-button {
+      background-color: #ffcc00;
+      color: #222;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      cursor: pointer;
+      z-index: 2;
+      position: relative;
+    }
+
+    .center-button:hover {
+      background-color: #e6b800;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Indicador de scroll */
+    .scroll-indicator {
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      height: 50px;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #ffcc00;
+      border-radius: 50%;
+      animation: fadeScale 1.8s infinite ease-in-out;
+      opacity: 0.5;
+      transform-origin: center;
+    }
+
+    .dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .dot:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    .dot:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeScale {
+      0%, 80%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      40% {
+        opacity: 1;
+        transform: scale(1.5);
+      }
+    }
+
+    /* Sección de videos, visible al hacer scroll */
+    .video-section {
+      margin: 60px auto 80px auto;
+      max-width: 1000px;
+      width: 90%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .video-sequence-container {
+      position: relative;
+      width: 100%;
+      height: 600px; /* Ajusta el alto según tu preferencia */
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background-color: black;
+    }
+
+    .video-sequence-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+      transition: opacity 1s ease-in-out;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    .video-sequence-container video.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      z-index: 30;
+      position: relative;
+      width: 100%;
+    }
+
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #444;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-info a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links {
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+
+    .social-icon-img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s;
+    }
+
+    .social-icon-img:hover {
+      transform: scale(1.2);
+    }
+
+    footer .copyright {
+      font-size: 0.9rem;
+      margin-top: 20px;
+      color: #bbb;
+    }
+
+    /* Fondo animado de burbujas */
+    .background-bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* No interfieren con clicks */
+      overflow: hidden;
+      z-index: 0; /* Detrás de todo */
+      background: transparent;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -40px; /* Empiezan justo fuera de la pantalla */
+      background-color: rgba(255, 204, 0, 0.3); /* amarillo suave */
+      border-radius: 50%;
+      width: var(--size);
+      height: var(--size);
+      left: var(--left);
+      animation: riseBubble 10s linear infinite;
+      animation-delay: var(--delay);
+      filter: drop-shadow(0 0 3px rgba(255,204,0,0.5));
+      z-index: 0;
+    }
+
+    @keyframes riseBubble {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <!-- Fondo animado -->
+  <div class="background-bubbles">
+    <span class="bubble" style="--size: 20px; --left: 10%; --delay: 0s;"></span>
+    <span class="bubble" style="--size: 15px; --left: 25%; --delay: 2s;"></span>
+    <span class="bubble" style="--size: 25px; --left: 40%; --delay: 4s;"></span>
+    <span class="bubble" style="--size: 18px; --left: 60%; --delay: 1s;"></span>
+    <span class="bubble" style="--size: 22px; --left: 75%; --delay: 3s;"></span>
+    <span class="bubble" style="--size: 12px; --left: 85%; --delay: 5s;"></span>
+  </div>
+
+  <!-- Sección intro con botón centrado -->
+  <section class="intro-section">
+    <div class="center-intro">
+      <h1>Hi! I'm Maria.</h1>
+      <p>
+        I'm a game developer, concept artist, and 3D artist. Love turning creative ideas into reality.
+      </p>
+    </div>
+    <a href="projects.html" class="center-button">View My Projects</a>
+
+    <!-- Indicador de scroll -->
+    <div class="scroll-indicator">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- Sección de videos, solo visible al hacer scroll -->
+  <section class="video-section">
+    <div class="video-sequence-container">
+      <video id="videoA" autoplay muted playsinline></video>
+      <video id="videoB" autoplay muted playsinline></video>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Cargar header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    // Cargar footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+
+    // Crossfade entre videos
+    const videos = [
+      'Assets/Videos/video1.mp4',
+      'Assets/Videos/video2.mp4',
+      'Assets/Videos/video3.mp4',
+      'Assets/Videos/video4.mp4',
+      'Assets/Videos/video5.mp4',
+      'Assets/Videos/video6.mp4'
+    ];
+    let currentIndex = 0;
+
+    const videoA = document.getElementById('videoA');
+    const videoB = document.getElementById('videoB');
+    let currentVideo = videoA;
+    let nextVideo = videoB;
+
+    function crossfadeVideos() {
+      const nextIndex = (currentIndex + 1) % videos.length;
+
+      nextVideo.src = videos[nextIndex];
+      nextVideo.load();
+      nextVideo.currentTime = 0;
+      nextVideo.play();
+
+      nextVideo.classList.add('active');
+      currentVideo.classList.remove('active');
+
+      [currentVideo, nextVideo] = [nextVideo, currentVideo];
+      currentIndex = nextIndex;
+
+      scheduleCrossfade();
+    }
+
+    function scheduleCrossfade() {
+      const duration = currentVideo.duration;
+      if (!isNaN(duration)) {
+        const startFade = duration - 2;
+        currentVideo.removeEventListener('timeupdate', handleFadeStart);
+        currentVideo.addEventListener('timeupdate', handleFadeStart);
+
+        function handleFadeStart() {
+          if (currentVideo.currentTime >= startFade) {
+            currentVideo.removeEventListener('timeupdate', handleFadeStart);
+            crossfadeVideos();
+          }
+        }
+      } else {
+        setTimeout(scheduleCrossfade, 200);
+      }
+    }
+
+    function startPlaylist() {
+      currentVideo.src = videos[currentIndex];
+      currentVideo.classList.add('active');
+      currentVideo.play();
+
+      currentVideo.onloadedmetadata = () => {
+        scheduleCrossfade();
+      };
+    }
+
+    startPlaylist();
+  </script>
+</body>
+</html>
