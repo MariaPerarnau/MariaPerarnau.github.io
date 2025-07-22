@@ -17,17 +17,6 @@ Este es el portfolio web de **María Perarnau**, una desarrolladora de videojueg
 - Secciones de contacto con redes sociales
 - Diseño responsive y visualmente atractivo
 
-## 📁 Estructura básica
-
-index.html
-│
-├── header (generado dinámicamente con JavaScript)
-├── sección de introducción (nombre, descripción, botón)
-├── indicador de scroll animado
-├── sección de videos
-├── footer (con información de contacto y redes)
-└── estilos y scripts incluidos en línea
-
 ## 📬 Contacto
 
 Puedes encontrarme en:
