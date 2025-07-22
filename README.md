@@ -1,4 +1,4 @@
-# María Perarnau - Portfolio Web
+# Maria Perarnau - Portfolio Web
 
 Este es el portfolio web de **María Perarnau**, una desarrolladora de videojuegos, artista conceptual y artista 3D. La página muestra proyectos, información personal y formas de contacto.
 
@@ -25,4 +25,4 @@ Puedes encontrarme en:
 
 ---
 
-© 2025 María Perarnau. Todos los derechos reservados.
+© 2025 Maria Perarnau. Todos los derechos reservados.
