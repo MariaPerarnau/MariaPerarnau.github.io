@@ -1,12 +1,16 @@
 <!doctype html>
 <html lang="es">
+
+<!-------------------------->
+<!-- THIS IS MARIA PERARNAU PORTFOLIO -->
+<!-------------------------->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Maria Perarnau | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Orbitron:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -20,12 +24,12 @@
       --highlight: #ff0f7b;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; }
 
     body {
-      height: 100%;
+      min-height: 100%;
       margin: 0;
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: var(--fondo);
       color: var(--texto);
       -webkit-font-smoothing: antialiased;
@@ -47,43 +51,44 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      min-height: 100vh;
     }
 
     .hero-text { max-width: 600px; }
     .hero-text h1 { font-family: 'Fredoka One', cursive; font-size: 2.5rem; margin: 0 0 1.5rem 0; letter-spacing: 2px; }
-    .hero-text h2 { font-family: 'Orbitron', sans-serif; font-size: 4rem; margin: 0 0 2rem 0; line-height: 1.2; word-wrap: break-word; }
-    .hero-text .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; font-family: 'Orbitron', sans-serif; background-color: var(--btn-bg); color: var(--btn-text); border: none; border-radius: 50px; cursor: pointer; text-decoration: none; transition: background 0.3s; }
+    .hero-text h2 { font-family: 'Orbitron', sans-serif; font-size: 4rem; margin: 0 0 2rem 0; line-height: 1.2; word-wrap: break-word; margin-bottom: 8rem; }
+    .hero-text .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; font-family: 'Orbitron', sans-serif; background-color: var(--btn-bg); color: var(--btn-text); border: none; border-radius: 50px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; position: relative; overflow: hidden; }
     .hero-text .btn:hover { background-color: #e00d6c; }
 
     /* ABOUT */
-    .about { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100vh; padding: 2rem 10%; max-width: 3000px; margin: 0 auto; }
+    .about { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: auto; padding: 4rem 10%; max-width: 3000px; margin: 0 auto; }
     .about h3 { font-family: 'Orbitron', cursive; font-size: 2.5rem; margin-bottom: 1rem; }
-    .about p { font-family: 'Orbitron', sans-serif; font-size: 1.15rem; line-height: 1.8; color: var(--texto); margin-bottom: 1rem; max-width: 900px; }
-    .about .projects { font-family: 'Orbitron', sans-serif; font-size: 1.25rem; color: var(--highlight); text-decoration: none; font-weight: bold; display: flex; flex-direction: column; align-items: center; margin-top: 10rem; }
+    .about p { font-family: 'Roboto', sans-serif; font-size: 1.15rem; line-height: 1.8; color: var(--texto); margin-bottom: 4rem; max-width: 900px; }
+    .about .projects { font-family: 'Orbitron', sans-serif; font-size: 1.25rem; color: var(--highlight); text-decoration: none; font-weight: bold; display: flex; flex-direction: column; align-items: center; margin-top: 3rem; }
     .about .projects::after { content: '↓'; margin-top: 0.5rem; font-size: 2rem; }
 
     /* PROJECTS */
-    .projects-section { display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%; padding: 2rem; margin-top: 0; }
+    .projects-section { display: flex; justify-content: center; align-items: center; min-height: auto; width: 100%; padding: 2rem; margin-top: 0; }
     .projects-container { display: flex; width: 100%; max-width: 1000px; }
     .projects-left, .projects-right { flex: 1; display: flex; justify-content: center; align-items: center; }
     .projects-left img { max-width: 90%; max-height: 90%; object-fit: cover; border-radius: 10px; }
     .projects-right { display: flex; flex-direction: column; justify-content: center; text-align: left; padding: 2rem; max-width: 600px; align-items: flex-start; }
     .projects-right h3 { font-family: 'Orbitron', cursive; font-size: 2.5rem; margin-bottom: 1rem; letter-spacing: 5px; color: var(--highlight); }
-    .projects-right p { font-family: 'Orbitron', sans-serif; font-size: 1.25rem; line-height: 1.6; margin-bottom: 0; }
-    .projects-right .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; font-family: 'Orbitron', sans-serif; background-color: var(--btn-bg); color: var(--btn-text); border: none; border-radius: 50px; cursor: pointer; text-decoration: none; transition: background 0.3s; margin-top: 2rem; }
+    .projects-right p { font-family: 'Roboto', sans-serif; font-size: 1.25rem; line-height: 1.6; margin-bottom: 0; }
+    .projects-right .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; font-family: 'Orbitron', sans-serif; background-color: var(--btn-bg); color: var(--btn-text); border: none; border-radius: 50px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; margin-top: 2rem; position: relative; overflow: hidden; }
     .projects-right .btn:hover { background-color: #e00d6c; }
 
     /* SKILLS */
-    .skills-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 100vh; padding: 4rem 10%; }
+    .skills-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: auto; padding: 4rem 10%; }
     .skills-section h3 { font-family: 'Orbitron', cursive; font-size: 2.5rem; margin-bottom: 3rem; color: var(--highlight); letter-spacing: 5px; }
     .skills-categories { display: flex; flex-direction: column; gap: 3rem; max-width: 1000px; width: 100%; }
-    .skills-group h4 { font-size: 1.8rem; color: var(--texto); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+    .skills-group h4 { font-family: 'Orbitron', cursive; font-size: 1.8rem; color: var(--texto); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; }
-    .skill-box { background: rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 10px; font-size: 1rem; font-family: 'Orbitron', sans-serif; text-align: center; }
+    .skill-box { background: rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 10px; font-size: 1rem; font-family: 'Roboto', sans-serif; text-align: center; }
 
     /* CONTACT */
     .contact-section {
-      height: 100vh;
+      min-height: 100vh;
       width: 100%;
       position: relative;
       display: flex;
@@ -102,7 +107,7 @@
       top:0;
       left:0;
       width:100%;
-      height:100%;
+      min-height:100%;
       background: rgba(0,1,35,0.6);
       z-index:1;
     }
@@ -117,15 +122,76 @@
       align-items: center;
     }
     .contact-section h3 { font-family: 'Orbitron', cursive; font-size: 2.5rem; margin-bottom: 1rem; }
-    .contact-section p { font-family: 'Orbitron', sans-serif; font-size: 1.25rem; line-height: 1.6; margin-bottom: 1rem; }
+    .contact-section p { font-family: 'Roboto', sans-serif; font-size: 1.25rem; line-height: 1.6; margin-bottom: 1rem; }
 
     .contact-info span { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
     .social-links { display: flex !important; flex-direction: row  !important; gap: 3rem; justify-content: center; margin-top: 0.5rem; }
-    .social-links a img { width: 30px; height: 30px; object-fit: contain; transition: transform 0.3s; }
+    .social-links a img { width: 30px; min-height: 30px; object-fit: contain; transition: transform 0.3s; }
     .social-links a img:hover { transform: scale(1.2); }
 
     /* FOOTER */
     footer { flex-shrink:0; padding:1rem 1.25rem; text-align:center; font-size:0.95rem; background: var(--footer-bg); color: var(--texto); font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+    @media (max-width: 800px) {
+      main { padding: 12% 6%; }
+      .hero-text h2 { font-size: 2.25rem; margin-bottom: 3rem; }
+      .about, .skills-section { padding: 2.5rem 6%; }
+      .projects-container { flex-direction: column; gap: 1.5rem; }
+      .projects-left img { max-width: 100%; max-height: 300px; }
+      .projects-right { padding: 1rem; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .social-links { gap: 1.25rem; }
+    }
+
+    .glitter {
+      position: absolute;
+      pointer-events: none;
+      width: 3px;
+      height: 3px;
+      background: radial-gradient(circle, #ffd6ec 0%, #ff80c0 70%, transparent 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 4px #ffb6d9, 0 0 8px #ff4fa1;
+      animation: glitterTrail 0.8s ease-out forwards;
+      z-index: 9999;
+    }
+
+    @keyframes glitterTrail {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.5); opacity: 0.7; }
+      100% { transform: scale(0.1); opacity: 0; }
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, #ffd6ec 0%, #ff80c0 40%, transparent 70%);
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.4s ease;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+
+    .btn:hover::before {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 12px rgba(255, 15, 123, 0.6), 0 0 25px rgba(255, 128, 192, 0.4);
+      transform: scale(1.05);
+    }
+    .mi-foto {
+    width: 250px;  
+    height: 250px;    
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 4px solid white;
+    }
 
   </style>
 </head>
@@ -141,6 +207,7 @@
 
     <section class="about" id="about">
       <h3>About Me</h3>
+      <img src="Assets/miFoto.jpg" alt="Maria Perarnau" class="mi-foto">
       <p>Hi! I’m a game developer, concept artist, and 3D artist with a passion for creating games in Unity. I'm currently studying Game Design and Development at CITM (UPC).
         <br><br>
         I'm highly adaptable and quick to learn new workflows and pipelines, whether it’s switching to a different engine or integrating into a new team's production style.
@@ -182,7 +249,7 @@
             <div class="skill-box">3D Modeling</div>
             <div class="skill-box">Concept Art</div>
             <div class="skill-box">Blender</div>
-            <div class="skill-box">Photoshop</div>
+            <div class="skill-box">Video Editing</div>
           </div>
         </div>
 
@@ -231,5 +298,67 @@
       <span>© 2025 Maria Perarnau. All rights reserved.</span>
     </footer>
   </div>
+
+  <script>
+    (function() {
+      const DURATION = 1600;
+
+      function easeInOutQuad(t) {
+        return t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+      }
+
+      function scrollToY(targetY, duration, onDone) {
+        const startY = window.pageYOffset;
+        const maxScroll = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight;
+        const destination = Math.min(targetY, maxScroll);
+        let startTime = null;
+        let rafId;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = easeInOutQuad(progress);
+          window.scrollTo(0, Math.round(startY + (destination - startY) * eased));
+          if (elapsed < duration) {
+            rafId = requestAnimationFrame(step);
+          } else {
+            if (typeof onDone === 'function') onDone();
+          }
+        }
+        rafId = requestAnimationFrame(step);
+        return function cancel() { if (rafId) cancelAnimationFrame(rafId); };
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          const targetY = target.getBoundingClientRect().top + window.pageYOffset;
+          scrollToY(targetY, DURATION, function() {
+            try { target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); } catch(err){}
+            history.pushState(null,'',href);
+          });
+        });
+      });
+    })();
+
+    document.addEventListener("mousemove", function(e) {
+      if (Math.random() > 0.7) {
+        let sparkle = document.createElement("span");
+        sparkle.className = "glitter";
+        let x = e.pageX + (Math.random() * 10 - 5);
+        let y = e.pageY + (Math.random() * 10 - 5);
+        sparkle.style.left = x + "px";
+        sparkle.style.top = y + "px";
+        document.body.appendChild(sparkle);
+        setTimeout(() => { sparkle.remove(); }, 800);
+      }
+    });
+  </script>
+
 </body>
 </html>
