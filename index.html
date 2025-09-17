@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="es">
 
-<!-------------------------->
-<!-- THIS IS MARIA PERARNAU PORTFOLIO -->
-<!-------------------------->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -12,194 +9,15 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Orbitron:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-
-    :root {
-      --fondo: #000123;
-      --texto: #e6eef9;
-      --footer-bg: rgba(0,0,0,0.35);
-      --btn-bg: #ff0f7b;
-      --btn-text: #ffffff;
-      --highlight: #ff0f7b;
-    }
-
-    html { scroll-behavior: auto; }
-
-    body {
-      min-height: 100%;
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: var(--fondo);
-      color: var(--texto);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    .wrap { min-height: 100%; display: flex; flex-direction: column; }
-
-    /* HERO */
-    main {
-      flex: 1 0 auto;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-      padding: 10% 10%;
-      background-image: url('Assets/fondo.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 100vh;
-    }
-
-    .hero-text { max-width: 600px; }
-    .hero-text h1 { font-family: 'Fredoka One', cursive; font-size: 2.5rem; margin: 0 0 1.5rem 0; letter-spacing: 2px; }
-    .hero-text h2 { font-family: 'Orbitron', sans-serif; font-size: 4rem; margin: 0 0 2rem 0; line-height: 1.2; word-wrap: break-word; margin-bottom: 8rem; }
-    .hero-text .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; font-family: 'Orbitron', sans-serif; background-color: var(--btn-bg); color: var(--btn-text); border: none; border-radius: 50px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; position: relative; overflow: hidden; }
-    .hero-text .btn:hover { background-color: #e00d6c; }
-
-    /* ABOUT */
-    .about { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: auto; padding: 4rem 10%; max-width: 3000px; margin: 0 auto; }
-    .about h3 { font-family: 'Orbitron', cursive; font-size: 2.5rem; margin-bottom: 1rem; }
-    .about p { font-family: 'Roboto', sans-serif; font-size: 1.15rem; line-height: 1.8; color: var(--texto); margin-bottom: 4rem; max-width: 900px; }
-    .about .projects { font-family: 'Orbitron', sans-serif; font-size: 1.25rem; color: var(--highlight); text-decoration: none; font-weight: bold; display: flex; flex-direction: column; align-items: center; margin-top: 3rem; }
-    .about .projects::after { content: '↓'; margin-top: 0.5rem; font-size: 2rem; }
-
-    /* PROJECTS */
-    .projects-section { display: flex; justify-content: center; align-items: center; min-height: auto; width: 100%; padding: 2rem; margin-top: 0; }
-    .projects-container { display: flex; width: 100%; max-width: 1000px; }
-    .projects-left, .projects-right { flex: 1; display: flex; justify-content: center; align-items: center; }
-    .projects-left img { max-width: 90%; max-height: 90%; object-fit: cover; border-radius: 10px; }
-    .projects-right { display: flex; flex-direction: column; justify-content: center; text-align: left; padding: 2rem; max-width: 600px; align-items: flex-start; }
-    .projects-right h3 { font-family: 'Orbitron', cursive; font-size: 2.5rem; margin-bottom: 1rem; letter-spacing: 5px; color: var(--highlight); }
-    .projects-right p { font-family: 'Roboto', sans-serif; font-size: 1.25rem; line-height: 1.6; margin-bottom: 0; }
-    .projects-right .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; font-family: 'Orbitron', sans-serif; background-color: var(--btn-bg); color: var(--btn-text); border: none; border-radius: 50px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; margin-top: 2rem; position: relative; overflow: hidden; }
-    .projects-right .btn:hover { background-color: #e00d6c; }
-
-    /* SKILLS */
-    .skills-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: auto; padding: 4rem 10%; }
-    .skills-section h3 { font-family: 'Orbitron', cursive; font-size: 2.5rem; margin-bottom: 3rem; color: var(--highlight); letter-spacing: 5px; }
-    .skills-categories { display: flex; flex-direction: column; gap: 3rem; max-width: 1000px; width: 100%; }
-    .skills-group h4 { font-family: 'Orbitron', cursive; font-size: 1.8rem; color: var(--texto); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; }
-    .skill-box { background: rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 10px; font-size: 1rem; font-family: 'Roboto', sans-serif; text-align: center; }
-
-    /* CONTACT */
-    .contact-section {
-      min-height: 100vh;
-      width: 100%;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--texto);
-      background-image: url('Assets/FinalBackgroundImage.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    .contact-section::before {
-      content: "";
-      position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      min-height:100%;
-      background: rgba(0,1,35,0.6);
-      z-index:1;
-    }
-    .contact-section div {
-      position: relative;
-      z-index:2;
-      max-width: 600px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: center;
-    }
-    .contact-section h3 { font-family: 'Orbitron', cursive; font-size: 2.5rem; margin-bottom: 1rem; }
-    .contact-section p { font-family: 'Roboto', sans-serif; font-size: 1.25rem; line-height: 1.6; margin-bottom: 1rem; }
-
-    .contact-info span { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
-    .social-links { display: flex !important; flex-direction: row  !important; gap: 3rem; justify-content: center; margin-top: 0.5rem; }
-    .social-links a img { width: 30px; min-height: 30px; object-fit: contain; transition: transform 0.3s; }
-    .social-links a img:hover { transform: scale(1.2); }
-
-    /* FOOTER */
-    footer { flex-shrink:0; padding:1rem 1.25rem; text-align:center; font-size:0.95rem; background: var(--footer-bg); color: var(--texto); font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-
-    @media (max-width: 800px) {
-      main { padding: 12% 6%; }
-      .hero-text h2 { font-size: 2.25rem; margin-bottom: 3rem; }
-      .about, .skills-section { padding: 2.5rem 6%; }
-      .projects-container { flex-direction: column; gap: 1.5rem; }
-      .projects-left img { max-width: 100%; max-height: 300px; }
-      .projects-right { padding: 1rem; }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
-      .social-links { gap: 1.25rem; }
-    }
-
-    .glitter {
-      position: absolute;
-      pointer-events: none;
-      width: 3px;
-      height: 3px;
-      background: radial-gradient(circle, #ffd6ec 0%, #ff80c0 70%, transparent 100%);
-      border-radius: 50%;
-      box-shadow: 0 0 4px #ffb6d9, 0 0 8px #ff4fa1;
-      animation: glitterTrail 0.8s ease-out forwards;
-      z-index: 9999;
-    }
-
-    @keyframes glitterTrail {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(0.5); opacity: 0.7; }
-      100% { transform: scale(0.1); opacity: 0; }
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, #ffd6ec 0%, #ff80c0 40%, transparent 70%);
-      opacity: 0;
-      transform: scale(0);
-      transition: all 0.4s ease;
-      pointer-events: none;
-      border-radius: 50%;
-    }
-
-    .btn:hover::before {
-      opacity: 0.6;
-      transform: scale(1);
-    }
-
-    .btn:hover {
-      box-shadow: 0 0 12px rgba(255, 15, 123, 0.6), 0 0 25px rgba(255, 128, 192, 0.4);
-      transform: scale(1.05);
-    }
-    .mi-foto {
-    width: 250px;  
-    height: 250px;    
-    border-radius: 50%; 
-    object-fit: cover; 
-    border: 4px solid white;
-    }
-
-  </style>
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrap">
     <main>
       <div class="hero-text">
         <h1>Maria Perarnau</h1>
+        <p>Game Developer, Concept Artist & 3D Artist</p>
         <h2>Creating games that look amazing and play even better</h2>
         <a href="#about" class="btn">Get Started →</a>
       </div>
@@ -207,72 +25,84 @@
 
     <section class="about" id="about">
       <h3>About Me</h3>
-      <img src="Assets/miFoto.jpg" alt="Maria Perarnau" class="mi-foto">
-      <p>Hi! I’m a game developer, concept artist, and 3D artist with a passion for creating games in Unity. I'm currently studying Game Design and Development at CITM (UPC).
+      <img src="Assets/miFoto.JPG" alt="Maria Perarnau" class="mi-foto">
+      <p>Hi! I’m a <b>game developer, concept artist, and 3D artist</b> with a passion for creating games in Unity. I'm currently studying Game Design and Development at CITM (UPC).
         <br><br>
-        I'm highly adaptable and quick to learn new workflows and pipelines, whether it’s switching to a different engine or integrating into a new team's production style.
+        I'm highly adaptable and quick to <b>learn new workflows and pipelines</b>, whether it’s switching to a different engine or integrating into a new team's production style.
         <br><br>
         I’m always eager to evolve, explore new tools, and push the boundaries of my craft.</p>
       <a href="#projects" class="projects">CHECK OUT MY PROJECTS</a>
     </section>
 
     <section class="projects-section" id="projects">
-      <div class="projects-container">
-        <div class="projects-left">
-          <img src="Assets/Proyecto.jpg" alt="Proyecto Imagen">
-        </div>
-        <div class="projects-right">
-          <h3>MY PROJECTS</h3>
-          <p>Here I showcase some of my favorite games and interfaces I've designed and developed.</p>
-          <a href="#" class="btn">See More →</a>
-        </div>
+  <h3>MY PROJECTS</h3>
+  <p>
+    Here you can explore some of the games, concepts, or 3D art pieces I've created.
+  </p>
+
+  <div class="projects-grid">
+    <!-- Card 1 -->
+    <a href="https://burned-games.github.io/game" target="_blank" class="project-card-link">
+      <div class="project-card">
+        <img src="Assets/Warhammer.JPG" alt="Project 1">
+        <h4>Warhammer 40k: The Last Marine</h4>
+        <h5>Own Engine • Single Player</h5>
+        <p>A Diablo-like action shooter where you fight across the grimdark universe of Warhammer 40K.</p>
       </div>
-    </section>
+    </a>
 
-    <section class="skills-section" id="skills">
-      <h3>MY SKILLS</h3>
-      <div class="skills-categories">
+    <!-- Card 2 -->
+    <a href="https://alejandroir.itch.io/hiredorfired" target="_blank" class="project-card-link">
+      <div class="project-card">
+        <img src="Assets/HiredOrFired.png" alt="Project 2">
+        <h4>Hired Or Fired</h4>
+        <h5>Unity • VR • Immersive Experience</h5>
+        <p>An immersive VR experience where you take on the role of a Mafia boss running business from your office.</p>
+      </div>
+    </a>
+    <!-- Card 3 -->
+    <a href="https://alejandroir.itch.io/runrainrun" target="_blank" class="project-card-link">
+      <div class="project-card">
+        <img src="Assets/RunRainRun.jpg" alt="Project 3">
+        <h4>Run Rain Run!</h4>
+        <h5>Unity • Platformer • GameJam</h5>
+        <p>A Unity-based platformer with stylized art and smooth mechanics.</p>
+      </div>
+    </a>
+  
 
-        <div class="skills-group">
-          <h4>Technical</h4>
-          <div class="skills-grid">
-            <div class="skill-box">Unity</div>
-            <div class="skill-box">C#</div>
-            <div class="skill-box">Game Engines</div>
-            <div class="skill-box">Version Control (Git)</div>
-          </div>
-        </div>
+    <!-- Card 4 -->
+     <a href="https://github.com/Pistachio-Studios/Puddles-Legacy" target="_blank" class="project-card-link">
+      <div class="project-card">
+        <img src="Assets/Puddles_Legacy.png" alt="Project 4">
+        <h4>Puddles Legacy</h4>
+        <h5>Action • RPG</h5>
+        <p>Singleplayer real time action RPG set in a fantasy world.</p>
+      </div>
+    </a>
 
-        <div class="skills-group">
-          <h4>Artistic</h4>
-          <div class="skills-grid">
-            <div class="skill-box">3D Modeling</div>
-            <div class="skill-box">Concept Art</div>
-            <div class="skill-box">Blender</div>
-            <div class="skill-box">Video Editing</div>
-          </div>
-        </div>
-
-        <div class="skills-group">
-          <h4>Design & UX</h4>
-          <div class="skills-grid">
-            <div class="skill-box">UI/UX Design</div>
-            <div class="skill-box">Prototyping</div>
-            <div class="skill-box">Wireframing</div>
-            <div class="skill-box">Team Collaboration</div>
-          </div>
-        </div>
+    <!-- Card 5 -->
+     <a href="" target="_blank" class="project-card-link">
+      <div class="project-card">
+        <img src="Assets/Proyecto_.jpg" alt="Project 5">
+        <h4>Project</h4>
+        <h5>--- • ---</h5>
+        <p>Coming Soon...</p>
+      </div>
+    </a>
 
       </div>
-    </section>
+    </div>
+</section>
+
 
     <section class="contact-section" id="contact">
       <div>
         <h3>Contact Me</h3>
-        <p>If you want to collaborate or have any questions, feel free to reach out. I’d love to hear from you!</p>
-
+        <h4 class="contact-subtitle">Game Developer • Concept Artist • 3D Artist</h4>
+        <p>If you want to <b>collaborate</b> or have any questions, feel free to reach out. I’d love to hear from you!</p>
+        
         <div class="contact-info">
-          <span>📞 +34 634 639 330</span>
           <span>✉️ mariaperarnausanguesa@gmail.com</span>
           <span>📍 Barcelona, Spain</span>
         </div>
@@ -284,11 +114,11 @@
           <a href="https://mariaperarnau.itch.io/" target="_blank">
             <img src="Assets/itchio.png" alt="Itchio">
           </a>
-          <a href="https://www.instagram.com/soraliiaah" target="_blank">
-            <img src="Assets/instagram.png" alt="Instagram">
-          </a>
           <a href="https://www.artstation.com/mariaperarnau" target="_blank">
             <img src="Assets/artstation.png" alt="ArtStation">
+          </a>
+          <a href="CV_MariaPerarnau.pdf" target="_blank" download>
+            <img src="Assets/cv.png" alt="Download CV">
           </a>
         </div>
       </div>
@@ -299,66 +129,7 @@
     </footer>
   </div>
 
-  <script>
-    (function() {
-      const DURATION = 1600;
-
-      function easeInOutQuad(t) {
-        return t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
-      }
-
-      function scrollToY(targetY, duration, onDone) {
-        const startY = window.pageYOffset;
-        const maxScroll = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight;
-        const destination = Math.min(targetY, maxScroll);
-        let startTime = null;
-        let rafId;
-
-        function step(timestamp) {
-          if (!startTime) startTime = timestamp;
-          const elapsed = timestamp - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = easeInOutQuad(progress);
-          window.scrollTo(0, Math.round(startY + (destination - startY) * eased));
-          if (elapsed < duration) {
-            rafId = requestAnimationFrame(step);
-          } else {
-            if (typeof onDone === 'function') onDone();
-          }
-        }
-        rafId = requestAnimationFrame(step);
-        return function cancel() { if (rafId) cancelAnimationFrame(rafId); };
-      }
-
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          if (!href || href === '#') return;
-          const target = document.querySelector(href);
-          if (!target) return;
-          e.preventDefault();
-          const targetY = target.getBoundingClientRect().top + window.pageYOffset;
-          scrollToY(targetY, DURATION, function() {
-            try { target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); } catch(err){}
-            history.pushState(null,'',href);
-          });
-        });
-      });
-    })();
-
-    document.addEventListener("mousemove", function(e) {
-      if (Math.random() > 0.7) {
-        let sparkle = document.createElement("span");
-        sparkle.className = "glitter";
-        let x = e.pageX + (Math.random() * 10 - 5);
-        let y = e.pageY + (Math.random() * 10 - 5);
-        sparkle.style.left = x + "px";
-        sparkle.style.top = y + "px";
-        document.body.appendChild(sparkle);
-        setTimeout(() => { sparkle.remove(); }, 800);
-      }
-    });
-  </script>
-
+  <!-- JS externo -->
+  <script src="scripts.js"></script>
 </body>
 </html>
